@@ -79,14 +79,22 @@ namespace Deliveries.App_Code
         }
         public string orderStatus(int OrderID)
         {
-            string sql = "SELECT Status From Orders WHERE Name1=" + OrderID;
-            int st=Int32.Parse(dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString());
-            if (st == 1 || st==0)//  במקרה שעדיין לא נמצא שליח או שהשליח עוד לא יצאה לדרכו, המשתמש יקבל רק את המידע שההזמנה לא יצאה עדיין
-                return "ההזמנה עוד לא יצאה";
-            if (st == 2)
-                return "ההזמנה בדרך";
-            else
-                return "ההזמנה הגיעה ליעדה";
+            try
+            {
+                string sql = "SELECT Status From Orders WHERE Name1=" + OrderID;
+                int st = Int32.Parse(dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString());
+                if (st == 1 || st == 0)//  במקרה שעדיין לא נמצא שליח או שהשליח עוד לא יצאה לדרכו, המשתמש יקבל רק את המידע שההזמנה לא יצאה עדיין
+                    return "ההזמנה עוד לא יצאה";
+                if (st == 2)
+                    return "ההזמנה בדרך";
+                else
+                    return "ההזמנה הגיעה ליעדה";
+            }
+            catch(Exception ex)
+            {
+                return "משהו השתבש :-(";
+            }
+           
         }
         public void AnotherTryForFindingAgents()
         {

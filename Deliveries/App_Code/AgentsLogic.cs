@@ -9,6 +9,7 @@ namespace Deliveries.App_Code
     
     public class AgentsLogic
     {
+    
         DAL dal = new DAL();
 
         public int findAgent(string size, string typeAgent, int areaFrom, int regionFrom)

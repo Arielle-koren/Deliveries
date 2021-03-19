@@ -39,7 +39,7 @@ namespace Deliveries
         [WebMethod]
         public void a()
         {
-            var t = new Timer(TimerCallback);
+          //  Timer t = new Timer(TimerCallback,);
 
             // Figure how much time until 4:00
             DateTime now = DateTime.Now;
@@ -54,7 +54,7 @@ namespace Deliveries
             int msUntilFour = (int)((fourOClock - now).TotalMilliseconds);
 
             // Set the timer to elapse only once, at 4:00.
-            t.Change(msUntilFour, Timeout.Infinite);
+         //   t.Change(msUntilFour, Timeout.Infinite);
         }
     }
 }

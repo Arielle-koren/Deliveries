@@ -79,7 +79,6 @@
     <Compile Include="App_Code\DAL.cs" />
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\CitiesLogic.cs" />
-    <Compile Include="App_Code\DeliveryWithoutAgent.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

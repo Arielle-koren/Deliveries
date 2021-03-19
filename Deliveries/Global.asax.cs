@@ -13,7 +13,8 @@ namespace Deliveries
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            AgentsLogic ag = new AgentsLogic();
+            OrdersLogic ol = new OrdersLogic();
+            ol.AnotherTryForFindingAgents();
             
         }
 
