@@ -119,5 +119,24 @@ namespace Deliveries.App_Code
             string sql = "Update Agents SET NumOrders=NumOrders+1 WHERE ID=" + AgentID;
             dal.excuteQuery(sql);
         }
+        public void findAgent2(DataSet ds)//מציאת שליחים לכל מי שלא נמצא להם פעם קודמת
+        {
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                string typeAgent;
+                if (ds.Tables[0].Rows[i]["From"] == ds.Tables[0].Rows[i]["To"])
+                    typeAgent = "shortDistances";
+                else
+                    typeAgent = "longDistances";
+
+                int agentID = this.findAgent(ds.Tables[0].Rows[i]["Size1"].ToString(), typeAgent, Int32.Parse(ds.Tables[0].Rows[i]["From"].ToString()), Int32.Parse(ds.Tables[0].Rows[i]["to"].ToString()));
+                if (agentID != 0)//נמצא שליח
+                {
+                    this.addDeliveryToAgent(agentID);
+                    string sql = "UPDATE Orders SET AgentID= "+agentID+ ", Status= 1 WHERE ID="+ ds.Tables[0].Rows[i]["ID"].ToString();
+                    dal.excuteQuery(sql);
+                }
+            }
+        }
     }
 }

@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="try.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebService1.asmx" />
@@ -78,6 +79,10 @@
     <Compile Include="App_Code\DAL.cs" />
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\CitiesLogic.cs" />
+    <Compile Include="App_Code\DeliveryWithoutAgent.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="try.aspx.cs">
       <DependentUpon>try.aspx</DependentUpon>

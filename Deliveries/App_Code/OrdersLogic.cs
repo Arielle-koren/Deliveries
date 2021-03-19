@@ -33,7 +33,7 @@ namespace Deliveries.App_Code
             else //משלוח בין כמה טווחי איזורים
                 price = 100;
 
-            // בדיקת סוג שליח לפי המחיר, אותו טווח איזורים נחשב למרחקים קצרים
+            // בדיקת סוג שליח , אותו טווח איזורים נחשב למרחקים קצרים
             string typeAgent;
             if (regionFrom == regionto)
                 typeAgent = "shortDistances";
@@ -87,6 +87,12 @@ namespace Deliveries.App_Code
                 return "ההזמנה בדרך";
             else
                 return "ההזמנה הגיעה ליעדה";
+        }
+        public void AnotherTryForFindingAgents()
+        {
+            string sql = "SELECT * From Orders WHERE Status= 0";
+            DataSet ds=dal.excuteQuery(sql);
+            agl.findAgent2(ds);
         }
     }
 }
