@@ -38,10 +38,10 @@ namespace Deliveries
             return ol.orderStatus(OrderID);
         }
         [WebMethod]
-        public DataSet paymentsDetail(int costumerID)
+        public DataTable paymentsDetail(int costumerID)
         //קבלת סכום תשלום על ההזמנה
         {
-            return ol.paymentDetails(1, "03/04/2021", "04/04/2021");
+            return ol.paymentDetails(1);
 
         }
         [WebMethod]
