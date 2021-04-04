@@ -1,6 +1,7 @@
 ﻿using Deliveries.App_Code;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -35,6 +36,13 @@ namespace Deliveries
         //קבלת סטטוס עדכני על ההזמנה
         {
             return ol.orderStatus(OrderID);
+        }
+        [WebMethod]
+        public DataSet paymentsDetail(int costumerID)
+        //קבלת סכום תשלום על ההזמנה
+        {
+            return ol.paymentDetails(1, "03/04/2021", "04/04/2021");
+
         }
         [WebMethod]
         public void a()

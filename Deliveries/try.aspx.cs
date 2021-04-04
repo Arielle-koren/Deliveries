@@ -13,17 +13,10 @@ namespace Deliveries
         OrdersLogic ol = new OrdersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataSource = ol.paymentDetails(1, "03/04/2020", "04/04/2023");
+            GridView1.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Label1.Text = ol.addOrder("פתח תקווה", "בן 3", "0522944944", 1, 4, 7).ToString();
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Label2.Text = ol.orderStatus(7);
-        }
+        
     }
 }

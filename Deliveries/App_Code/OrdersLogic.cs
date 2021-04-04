@@ -102,5 +102,10 @@ namespace Deliveries.App_Code
             DataSet ds=dal.excuteQuery(sql);
             agl.findAgent2(ds);
         }
+        public DataSet paymentDetails(int costumerID, string d1, string d2)
+        {
+            string sql = string.Format("SELECT SUM(Price) AS S, Month(Date1) AS M, Year(Date1) AS Y FROM Orders WHERE ((Date1 >#{0}#) AND (Date1 <#{1}#)) AND CostuID="+costumerID+ " GROUP BY Month(Date1), Year(Date1)", d1, d2);
+            return dal.excuteQuery(sql);
+        }
     }
-}
+} 

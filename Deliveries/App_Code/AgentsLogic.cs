@@ -11,6 +11,7 @@ namespace Deliveries.App_Code
     {
     
         DAL dal = new DAL();
+        AreasLogic al = new AreasLogic();
 
         public int findAgent(string size, string typeAgent, int areaFrom, int regionFrom)
         {
@@ -115,22 +116,24 @@ namespace Deliveries.App_Code
            }
             return agentID;
         }
+
         public void addDeliveryToAgent(int AgentID)
         {
             string sql = "Update Agents SET NumOrders=NumOrders+1 WHERE ID=" + AgentID;
             dal.excuteQuery(sql);
         }
+
         public void findAgent2(DataSet ds)//מציאת שליחים לכל מי שלא נמצא להם פעם קודמת
         {
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 string typeAgent;
-                if (ds.Tables[0].Rows[i]["From"] == ds.Tables[0].Rows[i]["To"])
+                if (ds.Tables[0].Rows[i]["CityFromID"] == ds.Tables[0].Rows[i]["CityToID"])
                     typeAgent = "shortDistances";
                 else
                     typeAgent = "longDistances";
-
-                int agentID = this.findAgent(ds.Tables[0].Rows[i]["Size1"].ToString(), typeAgent, Int32.Parse(ds.Tables[0].Rows[i]["From"].ToString()), Int32.Parse(ds.Tables[0].Rows[i]["to"].ToString()));
+                int from = Int32.Parse(ds.Tables[0].Rows[i]["CityFromID"].ToString());
+                int agentID = this.findAgent(ds.Tables[0].Rows[i]["Size1"].ToString(), typeAgent, from, Int32.Parse(al.getRegion(from).ToString()));
                 if (agentID != 0)//נמצא שליח
                 {
                     this.addDeliveryToAgent(agentID);

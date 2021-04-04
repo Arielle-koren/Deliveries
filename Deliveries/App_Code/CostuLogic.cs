@@ -24,5 +24,6 @@ namespace Deliveries.App_Code
             string sql = "SELECT SalePercent From Costu WHERE ID=" + CostuID;
             return Int32.Parse(dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString());
         }
+
     }
 }
