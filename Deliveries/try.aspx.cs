@@ -13,7 +13,7 @@ namespace Deliveries
         OrdersLogic ol = new OrdersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataSource = ol.paymentDetails(1, "03/04/2020", "04/04/2023");
+            GridView1.DataSource = ol.paymentDetails(1);
             GridView1.DataBind();
         }
 

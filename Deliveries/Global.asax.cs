@@ -13,8 +13,7 @@ namespace Deliveries
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            OrdersLogic ol = new OrdersLogic();
-            ol.AnotherTryForFindingAgents();
+            MyTimer.startTimer();
             
         }
 
