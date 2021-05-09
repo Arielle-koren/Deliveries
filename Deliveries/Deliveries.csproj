@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\deliveries1.accdb" />
     <Content Include="Global.asax" />
     <Content Include="try.aspx" />
     <Content Include="Web.config" />
@@ -106,7 +107,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Task Folder\" />
   </ItemGroup>
   <PropertyGroup>

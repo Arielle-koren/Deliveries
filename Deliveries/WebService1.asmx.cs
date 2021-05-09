@@ -43,6 +43,13 @@ namespace Deliveries
             return ol.paymentDetails(1);
 
         }
-        
+        [WebMethod]
+        public void AnotherTryForFindingAgents()
+        //קבלת סטטוס עדכני על ההזמנה
+        {
+
+            OrdersLogic ol = new OrdersLogic();
+            ol.AnotherTryForFindingAgents();
+        }
     }
 }
