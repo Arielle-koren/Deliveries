@@ -78,6 +78,7 @@
     <Compile Include="App_Code\AreasLogic.cs" />
     <Compile Include="App_Code\CostuLogic.cs" />
     <Compile Include="App_Code\DAL.cs" />
+    <Compile Include="App_Code\DAL2.cs" />
     <Compile Include="App_Code\MyTimer.cs" />
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\CitiesLogic.cs" />

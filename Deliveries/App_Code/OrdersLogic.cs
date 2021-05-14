@@ -9,6 +9,7 @@ namespace Deliveries.App_Code
     public class OrdersLogic
     {
         DAL dal = new DAL();
+        DAL2 dal2= new DAL2()
         CitiesLogic cl = new CitiesLogic();
         CostuLogic col = new CostuLogic();
         AreasLogic al = new AreasLogic();
@@ -99,7 +100,7 @@ namespace Deliveries.App_Code
         public void AnotherTryForFindingAgents()// ניסיון נוסף למציאת שליחים
         {
             string sql = "SELECT * From Orders WHERE Status= 0";
-            DataSet ds=dal.excuteQuery(sql);
+            DataSet ds=dal2.excuteQuery(sql);
             agl.findAgent2(ds);
         }
         public DataTable paymentDetails(int costumerID)// מחזיר את הסכום ששילם הלקוח על המשלוחים לפי חודש
