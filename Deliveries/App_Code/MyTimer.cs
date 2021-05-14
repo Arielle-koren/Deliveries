@@ -21,9 +21,7 @@ namespace Deliveries.App_Code
         }
         private static void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            /* WebService1 ws = new WebService1();
-            ws.AnotherTryForFindingAgents();*/
-            //lock()
+            
             try
             { OrdersLogic ol = new OrdersLogic();
                 ol.AnotherTryForFindingAgents();

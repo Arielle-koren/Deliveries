@@ -13,7 +13,7 @@ namespace Deliveries.App_Code
         CostuLogic col = new CostuLogic();
         AreasLogic al = new AreasLogic();
         AgentsLogic agl = new AgentsLogic();
-        public double addOrder(String city, String Address, String Phone, int costumerID, int numObjects, int orderID)
+        public double addOrder(String city, String Address, String Phone, int costumerID, int numObjects, int orderID)//הוספת הזמנה
         {
             //חישוב מחיר משלוח לפי מרחקים. אותו איזור מחיר-20 , אותו טווח איזורים מחיר- 50 שח, אחרת 100 שח
             int to = cl.getCity(city);// מקבל את שם העיר אליו המשלוח צריך להגיע ומחזיר את האידי של העיר
@@ -77,7 +77,7 @@ namespace Deliveries.App_Code
             return price;
 
         }
-        public string orderStatus(int OrderID)
+        public string orderStatus(int OrderID)// מחזירה את הסטטוס של ההזמנה
         {
             try
             {
@@ -96,13 +96,13 @@ namespace Deliveries.App_Code
             }
            
         }
-        public void AnotherTryForFindingAgents()
+        public void AnotherTryForFindingAgents()// ניסיון נוסף למציאת שליחים
         {
             string sql = "SELECT * From Orders WHERE Status= 0";
             DataSet ds=dal.excuteQuery(sql);
             agl.findAgent2(ds);
         }
-        public DataTable paymentDetails(int costumerID)
+        public DataTable paymentDetails(int costumerID)// מחזיר את הסכום ששילם הלקוח על המשלוחים לפי חודש
         {
             string sql = string.Format("SELECT SUM(Price) AS S, Month(Date1) AS M, Year(Date1) AS Y FROM Orders WHERE CostuID="+costumerID+ " GROUP BY Month(Date1), Year(Date1)");
             return dal.excuteQuery(sql).Tables[0];
