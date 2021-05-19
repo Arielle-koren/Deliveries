@@ -8,8 +8,9 @@ namespace Deliveries.App_Code
 {
     public class OrdersLogic
     {
+       // static System.Timers.Timer _timer = new  System.Timers.Timer(5000);
         DAL dal = new DAL();
-        DAL2 dal2= new DAL2()
+      //  DAL2 dal2= new DAL2();
         CitiesLogic cl = new CitiesLogic();
         CostuLogic col = new CostuLogic();
         AreasLogic al = new AreasLogic();
@@ -100,13 +101,27 @@ namespace Deliveries.App_Code
         public void AnotherTryForFindingAgents()// ניסיון נוסף למציאת שליחים
         {
             string sql = "SELECT * From Orders WHERE Status= 0";
-            DataSet ds=dal2.excuteQuery(sql);
+            DataSet ds=dal.excuteQuery(sql);
             agl.findAgent2(ds);
         }
-        public DataTable paymentDetails(int costumerID)// מחזיר את הסכום ששילם הלקוח על המשלוחים לפי חודש
+        public DataTable paymentDetails()// מחזיר את הסכום ששילם הלקוח על המשלוחים לפי חודש
         {
-            string sql = string.Format("SELECT SUM(Price) AS S, Month(Date1) AS M, Year(Date1) AS Y FROM Orders WHERE CostuID="+costumerID+ " GROUP BY Month(Date1), Year(Date1)");
+            string sql = "SELECT SUM(Price) AS S, Month(Date1) AS M FROM Orders WHERE Year(Date1)=" + DateTime.Now.Year+ " GROUP BY Month(Date1) ORDER BY Month(Date1)";
             return dal.excuteQuery(sql).Tables[0];
         }
+
+     /*   public static void InitializeTimer()
+        {
+            _timer.Elapsed += _timer_Elapsed;
+            _timer.Enabled = true;
+        }
+
+        private static void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Deliveries.App_Code.OrdersLogic ol = new Deliveries.App_Code.OrdersLogic();
+            ol.AnotherTryForFindingAgents();
+
+        }*/
     }
+
 } 

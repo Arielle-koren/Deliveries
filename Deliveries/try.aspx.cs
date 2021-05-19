@@ -14,7 +14,7 @@ namespace Deliveries
         protected void Page_Load(object sender, EventArgs e)
         {
             ol.AnotherTryForFindingAgents();
-            GridView1.DataSource = ol.paymentDetails(1);
+            GridView1.DataSource = ol.paymentDetails();
             GridView1.DataBind();
         }
 

@@ -37,10 +37,10 @@ namespace Deliveries
             return ol.orderStatus(OrderID);
         }
         [WebMethod]
-        public DataTable paymentsDetail(int costumerID)
+        public DataTable paymentsDetail()
         //קבלת סכום תשלום על ההזמנה
         {
-            return ol.paymentDetails(1);
+            return ol.paymentDetails();
 
         }
         [WebMethod]
