@@ -79,11 +79,11 @@ namespace Deliveries.App_Code
             return price;
 
         }
-        public string orderStatus(int OrderID)// מחזירה את הסטטוס של ההזמנה
+        public string orderStatus(int OrderID, int costumerID)// מחזירה את הסטטוס של ההזמנה
         {
             try
             {
-                string sql = "SELECT Status From Orders WHERE Name1=" + OrderID;
+                string sql = "SELECT Status From Orders WHERE Name1=" + OrderID+ " AND CostuID="+costumerID;
                 int st = Int32.Parse(dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString());
                 if (st == 1 || st == 0)//  במקרה שעדיין לא נמצא שליח או שהשליח עוד לא יצאה לדרכו, המשתמש יקבל רק את המידע שההזמנה לא יצאה עדיין
                     return "ההזמנה עוד לא יצאה";

@@ -31,21 +31,14 @@ namespace Deliveries
             return ol.addOrder(city, Address, Phone, costumerID, numObjects, orderID);
         }
         [WebMethod]
-        public String GetStatus(int OrderID)
+        public String GetStatus(int OrderID, int costumerID)
         //קבלת סטטוס עדכני על ההזמנה
         {
-            return ol.orderStatus(OrderID);
-        }
-        [WebMethod]
-        public DataTable paymentsDetail()
-        //קבלת סכום תשלום על ההזמנה
-        {
-            return ol.paymentDetails();
-
+            return ol.orderStatus(OrderID, costumerID);
         }
         [WebMethod]
         public void AnotherTryForFindingAgents()
-        //קבלת סטטוס עדכני על ההזמנה
+        //ניסיון למצוא שליחים לכל ההזמנות שאין להם שליחים
         {
 
             OrdersLogic ol = new OrdersLogic();

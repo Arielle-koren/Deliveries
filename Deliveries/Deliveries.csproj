@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="App_Data\deliveries1.accdb" />
     <Content Include="Global.asax" />
-    <Content Include="try.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebService1.asmx" />
   </ItemGroup>
@@ -78,7 +77,6 @@
     <Compile Include="App_Code\AreasLogic.cs" />
     <Compile Include="App_Code\CostuLogic.cs" />
     <Compile Include="App_Code\DAL.cs" />
-    <Compile Include="App_Code\DAL2.cs" />
     <Compile Include="App_Code\MyTimer.cs" />
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\CitiesLogic.cs" />
@@ -86,13 +84,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="try.aspx.cs">
-      <DependentUpon>try.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="try.aspx.designer.cs">
-      <DependentUpon>try.aspx</DependentUpon>
-    </Compile>
     <Compile Include="WebService1.asmx.cs">
       <DependentUpon>WebService1.asmx</DependentUpon>
       <SubType>Component</SubType>
