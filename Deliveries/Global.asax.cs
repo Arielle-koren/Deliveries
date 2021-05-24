@@ -13,7 +13,7 @@ namespace Deliveries
 
         protected void Application_Start(object sender, EventArgs e)
         {
-          //  MyTimer.startTimer();
+           MyTimer.startTimer();
          //   OrdersLogic.InitializeTimer();
             
         }

@@ -8,9 +8,7 @@ namespace Deliveries.App_Code
 {
     public class OrdersLogic
     {
-       // static System.Timers.Timer _timer = new  System.Timers.Timer(5000);
         DAL dal = new DAL();
-      //  DAL2 dal2= new DAL2();
         CitiesLogic cl = new CitiesLogic();
         CostuLogic col = new CostuLogic();
         AreasLogic al = new AreasLogic();
@@ -110,18 +108,7 @@ namespace Deliveries.App_Code
             return dal.excuteQuery(sql).Tables[0];
         }
 
-     /*   public static void InitializeTimer()
-        {
-            _timer.Elapsed += _timer_Elapsed;
-            _timer.Enabled = true;
-        }
-
-        private static void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            Deliveries.App_Code.OrdersLogic ol = new Deliveries.App_Code.OrdersLogic();
-            ol.AnotherTryForFindingAgents();
-
-        }*/
+    
     }
 
 } 
